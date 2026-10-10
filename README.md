@@ -4,7 +4,7 @@
 
 ### An unofficial, fan-made companion for GTA VI
 
-Countdown &middot; Interactive Leonida Map &middot; Cast Dossier &middot; Crew Planner &middot; Trailer Vault
+Countdown &middot; Interactive Map &middot; Cast Dossier &middot; Completion Tracker &middot; Database &middot; Crew Planner &middot; Trailer Vault
 
 **Not affiliated with Rockstar Games or Take-Two Interactive.**
 
@@ -30,9 +30,29 @@ Rockstar's own official reveals:
   just a fun build-your-crew generator).
 - A **trailer vault** with both official trailers embedded plus a curated
   screenshot gallery.
+- A **completion tracker** — a persistent, check-off-as-you-go list for
+  missions, side content, collectibles, and properties. Saved to
+  `localStorage`, survives reloads.
+- A **database** — a searchable, filterable reference for vehicles,
+  weapons, and properties.
+- A **collectibles layer** on the map — clickable pins you can mark found,
+  persisted locally, filterable by kind.
 
 Everything here is sourced from material Rockstar Games has already made
 public. No leaks, no unverified rumors, no datamined content.
+
+### A note on launch-day content
+
+The Tracker, Database, and map Collectibles layer ship today with clearly
+labeled **placeholder data** — Rockstar hasn't revealed mission lists,
+collectible counts, or a vehicle/weapon roster yet, so that data can't
+exist. What's real and working right now is the *infrastructure*: the
+typed data shapes, the search/filter logic, and the `localStorage`
+persistence (check something off, reload the page, it's still checked).
+At launch, replacing the placeholder arrays in `src/data/tracker.ts`,
+`src/data/database.ts`, and `src/data/collectibles.ts` with real, verified
+content is the only change needed — no UI rework. See each file's header
+comment for specifics.
 
 ## Screenshots
 
@@ -41,11 +61,15 @@ public. No leaks, no unverified rumors, no datamined content.
 
 | Dispatch (Home) | Leonida Map |
 |---|---|
-| Hero, live countdown, trailer feed | Six-county interactive map with per-region detail panels |
+| Hero, live countdown, trailer feed | Six-county + collectibles interactive map with per-region detail panels |
 
 | Cast Dossier | Crew Planner |
 |---|---|
 | Full cast grid with bios | Build a crew, pick an approach, generate a job card |
+
+| Completion Tracker | Database |
+|---|---|
+| Persistent checklist with progress bars | Searchable, filterable vehicle/weapon/property reference |
 
 ## Tech stack
 
@@ -54,12 +78,13 @@ public. No leaks, no unverified rumors, no datamined content.
 | Framework | [React 19](https://react.dev) + [TypeScript](https://www.typescriptlang.org/) | Type-safe, component-driven, nothing exotic |
 | Build tool | [Vite 8](https://vite.dev) | Fast dev server, fast builds |
 | Styling | [Tailwind CSS v4](https://tailwindcss.com) | Utility-first, CSS-native `@theme` tokens, no config file needed |
-| Routing | [React Router v7](https://reactrouter.com) | Client-side routing across 5 pages |
+| Routing | [React Router v7](https://reactrouter.com) | Client-side routing across 7 pages |
 | Motion | [Framer Motion](https://www.framer.com/motion/) | Scroll-triggered reveals, modal transitions, the countdown's feel |
 | Icons | [Lucide](https://lucide.dev) | Consistent, lightweight icon set |
 
-No backend, no database, no API keys required. All content is static,
-typed TypeScript data in `src/data/`.
+No backend, no external database, no API keys required. All content is
+static, typed TypeScript data in `src/data/`; user progress (Tracker,
+collectibles found) persists client-side via `localStorage`.
 
 ## Getting started
 
@@ -101,15 +126,22 @@ leonida-dispatch/
 │   │   └── Footer.tsx           Site footer + legal disclaimer
 │   ├── pages/
 │   │   ├── Home.tsx             Hero, countdown, module grid, trailer feed
-│   │   ├── LeonidaMap.tsx       Interactive SVG map of the six counties
+│   │   ├── LeonidaMap.tsx       Interactive map: counties + collectibles layers
 │   │   ├── Cast.tsx             Character grid + detail modal
+│   │   ├── Tracker.tsx          Persistent completion checklist
+│   │   ├── Database.tsx         Searchable vehicle/weapon/property reference
 │   │   ├── Planner.tsx          Crew/heist planner tool
 │   │   └── Media.tsx            Trailer embeds + screenshot gallery
 │   ├── data/
 │   │   ├── characters.ts        Confirmed cast, bios, image refs
 │   │   ├── locations.ts         Confirmed counties/regions, map coordinates
 │   │   ├── trailers.ts          Trailer metadata + release date constant
-│   │   └── planner.ts           Crew planner's approaches/roles/targets
+│   │   ├── planner.ts           Crew planner's approaches/roles/targets
+│   │   ├── tracker.ts           [placeholder] Tracker categories/items
+│   │   ├── database.ts          [placeholder] Vehicle/weapon/property entries
+│   │   └── collectibles.ts      [placeholder] Map collectible pins
+│   ├── lib/
+│   │   └── useLocalStorage.ts   Persistence hook (Tracker, collectibles-found)
 │   ├── App.tsx                  Route table + shared layout
 │   ├── main.tsx                 React entry point
 │   └── index.css                Tailwind v4 entry + design tokens
@@ -173,6 +205,8 @@ setup, project conventions, and how to add content.
 
 ## Roadmap
 
+- [ ] **Launch day:** replace placeholder data in `tracker.ts`, `database.ts`,
+      and `collectibles.ts` with real, verified content
 - [ ] Light/alternate theme toggle
 - [ ] Shareable crew-planner job cards (image export)
 - [ ] Search/filter on the cast and media pages
