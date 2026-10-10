@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", sans-serif;
+  --font-body: "Rajdhani", sans-serif;
+
+  --color-ink: #05070d;
+  --color-ink-raised: #0c1020;
+  --color-ink-card: #10152a;
+  --color-mist: #8c93b8;
+  --color-mist-dim: #585f80;
+  --color-hotpink: #ff2fb0;
+  --color-cyan: #19e7ff;
+  --color-sunset: #ffb020;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+  color: #eef0fb;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-hotpink), var(--color-cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(25, 231, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(25, 231, 255, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.02) 0px,
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.glow-pink {
+  box-shadow: 0 0 0 1px rgba(255, 47, 176, 0.25), 0 20px 60px -20px rgba(255, 47, 176, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 0 1px rgba(25, 231, 255, 0.25), 0 20px 60px -20px rgba(25, 231, 255, 0.35);
+}
+
+::selection {
+  background: rgba(255, 47, 176, 0.35);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-hotpink), var(--color-cyan));
+  border-radius: 999px;
+}
