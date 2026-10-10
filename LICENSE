@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Leonida Dispatch contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+This license covers the original source code of this project only.
+
+It does NOT cover the contents of `public/images/`, which are promotional
+screenshots and trailer stills owned by Rockstar Games / Take-Two Interactive
+Software, Inc. Those assets are included for commentary, criticism, and fan
+reference purposes and remain the property of their respective owners. See
+`ASSETS.md` for details and removal requests.
+
+Grand Theft Auto, GTA, GTA VI, Vice City, and all related characters, names,
+and media are trademarks of Take-Two Interactive Software, Inc. This project
+is not affiliated with, endorsed by, or sponsored by Rockstar Games or
+Take-Two Interactive.
