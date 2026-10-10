@@ -5,6 +5,8 @@ const links = [
   { to: '/', label: 'Dispatch' },
   { to: '/map', label: 'Map' },
   { to: '/cast', label: 'Cast' },
+  { to: '/tracker', label: 'Tracker' },
+  { to: '/database', label: 'Database' },
   { to: '/planner', label: 'Crew Planner' },
   { to: '/media', label: 'Media' },
 ]
@@ -19,13 +21,13 @@ export default function NavBar() {
             LEONIDA <span className="text-gradient">DISPATCH</span>
           </span>
         </NavLink>
-        <nav className="hidden items-center gap-1 sm:flex">
+        <nav className="hidden items-center gap-0.5 lg:flex">
           {links.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               className={({ isActive }) =>
-                `rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-wide transition-colors ${
+                `rounded-full px-3 py-2 text-xs font-semibold uppercase tracking-wide transition-colors xl:text-sm ${
                   isActive ? 'bg-white/10 text-white' : 'text-mist hover:text-white'
                 }`
               }

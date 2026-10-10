@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Map, Users, ClipboardList, Film, ArrowUpRight } from 'lucide-react'
+import { Map, Users, ClipboardList, Film, ArrowUpRight, ListChecks, Database as DatabaseIcon } from 'lucide-react'
 import Countdown from '../components/Countdown'
 import { trailers } from '../data/trailers'
 
@@ -23,6 +23,20 @@ const modules = [
     title: 'Cast Dossier',
     desc: 'Jason, Lucia, and the supporting crew pulling Leonida’s strings.',
     accent: 'from-cyan-400/20 to-transparent',
+  },
+  {
+    to: '/tracker',
+    icon: ListChecks,
+    title: 'Completion Tracker',
+    desc: 'Check off missions, side content, and collectibles. Saved in your browser.',
+    accent: 'from-emerald-400/20 to-transparent',
+  },
+  {
+    to: '/database',
+    icon: DatabaseIcon,
+    title: 'Database',
+    desc: 'Searchable reference for vehicles, weapons, and properties.',
+    accent: 'from-sky-400/20 to-transparent',
   },
   {
     to: '/planner',
@@ -102,7 +116,7 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {modules.map((m, i) => {
             const Icon = m.icon
             return (

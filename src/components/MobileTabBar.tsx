@@ -11,7 +11,7 @@ const tabs = [
 
 export default function MobileTabBar() {
   return (
-    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-ink/95 backdrop-blur-md sm:hidden">
+    <nav className="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-ink/95 backdrop-blur-md lg:hidden">
       <div className="flex items-stretch justify-between px-2 py-1">
         {tabs.map((t) => {
           const Icon = t.icon
